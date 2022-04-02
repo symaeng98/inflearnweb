@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 //@Service //Service는 Component를 가지고 있음
 //@Component // 스프링 빈으로 자동 등록됨
+@Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
 
