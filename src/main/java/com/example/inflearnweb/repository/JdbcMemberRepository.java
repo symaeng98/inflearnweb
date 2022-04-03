@@ -119,6 +119,7 @@ public class JdbcMemberRepository implements MemberRepository {
     private Connection getConnection() {
         return DataSourceUtils.getConnection(dataSource); //스프링에서는 이렇게 받아야됨
     }
+
     private void close(Connection conn, PreparedStatement pstmt, ResultSet rs)
     {
         try {

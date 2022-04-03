@@ -19,8 +19,8 @@ import java.util.Optional;
 public class MemberService {
     private final MemberRepository memberRepository;
 
-//    @Autowired
-    public MemberService(MemberRepository memberRepository){
+    //    @Autowired
+    public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
 
@@ -30,10 +30,24 @@ public class MemberService {
 
     public Long join(Member member) {
 
-        // 같은 이름이 있는 중복 회원 X
+//        long start = System.currentTimeMillis();
+
+
+        // 시간 측정할거면 이런식으로 해야되는데 AOP 이용하면 안 써도 됨
+//        try{
+//            // 같은 이름이 있는 중복 회원 X
+//            validateDuplicateMember(member);
+//            memberRepository.save(member);
+//            return member.getId();
+//        }finally {
+//            long finish = System.currentTimeMillis();
+//            long timeMs = finish - start;
+//            System.out.println("join = "+timeMs+"ms");
+//        }
         validateDuplicateMember(member);
         memberRepository.save(member);
         return member.getId();
+
     }
 
     private void validateDuplicateMember(Member member) {
@@ -46,11 +60,11 @@ public class MemberService {
     /**
      * 전체 회원 조회
      */
-    public List<Member> findMembers(){
+    public List<Member> findMembers() {
         return memberRepository.findAll();
     }
 
-    public Optional<Member> findOne(Long memberId){
+    public Optional<Member> findOne(Long memberId) {
         return memberRepository.findById(memberId);
     }
 }

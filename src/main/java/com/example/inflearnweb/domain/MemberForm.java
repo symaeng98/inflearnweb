@@ -1,4 +1,4 @@
-package com.example.inflearnweb.controller;
+package com.example.inflearnweb.domain;
 
 public class MemberForm {
     private String name;

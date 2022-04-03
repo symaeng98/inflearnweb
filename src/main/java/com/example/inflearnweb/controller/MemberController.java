@@ -1,6 +1,7 @@
 package com.example.inflearnweb.controller;
 
 import com.example.inflearnweb.domain.Member;
+import com.example.inflearnweb.domain.MemberForm;
 import com.example.inflearnweb.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,6 @@ public class MemberController {
     public String create(MemberForm form){
         Member member = new Member();
         member.setName(form.getName());
-
 
         memberService.join(member);
 
